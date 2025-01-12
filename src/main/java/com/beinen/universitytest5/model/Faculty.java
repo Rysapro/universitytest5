@@ -20,11 +20,16 @@ public class Faculty {
     @OneToMany(mappedBy = "faculty", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Student> student = new ArrayList<>();
 
+    public void addUniversity(University university){
+        this.university = university;
+        university.getFaculty().add(this);
+    }
+
+
     public Faculty() {
     }
 
-    public Faculty(Long id, String name, University university, List<Student> student) {
-        this.id = id;
+    public Faculty(String name, University university, List<Student> student) {
         this.name = name;
         this.university = university;
         this.student = student;

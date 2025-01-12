@@ -53,7 +53,7 @@ public class University {
         return "University{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", faculty=" + faculty +
+//                ", faculty=" + faculty +
                 '}';
     }
 }

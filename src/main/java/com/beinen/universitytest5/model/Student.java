@@ -14,6 +14,11 @@ public class Student {
     @JoinColumn(name = "faculty_id")
     private Faculty  faculty ;
 
+//    public void addFaculty(Faculty faculty){
+//        this.faculty = faculty;
+//        faculty.getStudent().add(this);
+//    }
+
     public Student() {
     }
 

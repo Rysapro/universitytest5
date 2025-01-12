@@ -1,8 +1,8 @@
 package com.beinen.universitytest5.service;
 
+import com.beinen.universitytest5.exception.StudentNotFoundException;
 import com.beinen.universitytest5.model.Student;
 import com.beinen.universitytest5.repository.StudentRepository;
-import com.beinen.universitytest5.repository.UniversityRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,9 +14,12 @@ public class StudentServiceImpl implements StudentService{
         this.studentRepository = studentRepository;
     }
 
+
     @Override
-    public Student validateAndGetStudent(Long id) {
-        return null;
+    public Student validateAndGetStudent( Long studentId, Long facultyId) {
+        return studentRepository.findByIdAndFacultyId(studentId, facultyId)
+                .orElseThrow(() -> new StudentNotFoundException(studentId, facultyId));
+
     }
 
     @Override
